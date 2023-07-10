@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block active_register %}active{% endblock %}
+
+
+
+{% block css %}
+body {
+background-color: #000000 ;
+background-image: url()
+}
+img {
+width: 130px;
+}
+
+
+orange{
+color: #FF8C00;
+}
+
+input {
+height: 40px;
+width: 200px;
+}
+{% endblock  %}
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center" style="margin-top: 5%">
+    <div class="col-lg-4  shadow-lg rounded" style="background-color:;">
+        <div class="p-5">
+            <div class="mb-4 text-center orange">
+                 <h1><font color="#FF8C00">Регистрация</font></h1>
+            </div>
+            <form action="" method="post">
+                {% csrf_token%}
+
+                <div>
+                    <div class="form-floating mb-3">
+                        {{ form.username }}
+                        <label>{{ form.username.label}}</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.first_name }}
+                        <label>{{ form.first_name.label}}</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.password1 }}
+                        <label>{{ form.password1.label}}</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.password2 }}
+                        <label>{{ form.password2.label}}</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        {{ form.captcha }}
+                        <a class='captcha-refresh border-0'>
+                        <img src="{% static 'img/capcha.png' %}" style="width: 40px; height: 30px;">
+                        </a>
+                        <br>
+                        <span class="text-white">{{ form.captcha.help_text }}</span>
+                    </div>
+                    <div style="color: red">{{form.errors}}</div>
+
+
+                    <button type="submit" class="btn btn-warning col-8">Зарегистрировать</button>
+                    <a class="btn btn-danger col-3 float-end" href="{% url 'authorization'%}">Войти</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

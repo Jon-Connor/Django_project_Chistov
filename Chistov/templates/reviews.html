@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block active_reviews %}active{% endblock %}
+
+{% block bg%}
+<!--background-image: url(https://st.cherinfo.ru/pages/2020/10/31/fotograf-v-studii.jpg);-->
+background: #D7D7D0 ;
+<!--no-repeat;-->
+<!--background-size: 100%;-->
+<!--background-attachment: fixed;-->
+{%endblock%}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <div><h1 class="display-2">Отзывы клиентов</h1></div>
+        <div><h3>Мне важен каждый отзыв</h3></div>
+    </div>
+    <div class="text-center">
+        {% if request.method == 'GET' %}
+        <!-- Button trigger modal -->
+        <div class="mt-4">
+            <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="fs-3">Оставить отзыв 📝</span>
+            </a>
+        </div>
+        {% else %}
+        <div class="mt-4">
+            <button class="btn " style="background-color: #23F00D">
+                <h2 class="text-white">спасибо за отзыв</h2>
+            </button>
+        </div>
+        {%endif%}
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ваш отзыв</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'reviews' %}" method="post">
+                        {% csrf_token%}
+                        {% for f in form %}
+                        <div class="form-floating mb-3">
+                            {{ f }}
+                            <label>{{ f.label }}</label>
+                        </div>
+                        {% endfor %}
+                        <div class="d-grid  mx-auto">
+                            <button type="submit" class="btn btn-primary">оставить отзыв</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-5">
+        {% if not reviews_user %}
+        <div class="text-center">
+        <button class="btn" style="background-color: yellow">
+            <h2> Отзывов нет, будьте первыми </h2>
+        </button>
+            </div>
+        {%else%}
+
+        {% for i in reviews_user%}
+        <div class="my-3 p-3 shadow-lg border rounded-4 bg-white">
+            <div class="d-flex justify-content-between  mx-5">
+                <div><h3>{{i.name}}</h3></div>
+                <div><span>опубликовано: {{ i.time_create|date:"d-m-Y"}}</span></div>
+            </div>
+            <div>
+                <p class="mx-5 fs-5"> {{i.reviews}} </p>
+            </div>
+        </div>
+        {% endfor %}
+        {%endif%}
+    </div>
+
+</div>
+
+
+{% endblock content %}

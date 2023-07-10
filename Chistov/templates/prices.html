@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css %}
+.font{
+font-family: Rubik;
+}
+
+{% endblock %}
+
+{% block active_prices %}active{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-lg-2 g-4 text-center">
+        <div class="col">
+            <div class="card bg-dark text-white">
+                <img src="{% static 'img/prices_oblozhka/kom.JPG' %}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex  flex-column justify-content-end text-center font">
+                    <h1 class="card-title">Коммерческая</h1>
+                    <p class="card-text fs-3">Продолжительность от 60 мин <br>стоимость от 0 руб.</p>
+                    <div>
+                        <a class="btn btn-primary fs-5" href="contacts">записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-dark">
+                <img src="{% static 'img/prices_oblozhka/sb.jpg' %}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex  flex-column justify-content-end font">
+                    <h1 class="card-title">Свадебная</h1>
+                    <p class="card-text fs-3">Продолжительность от 60 мин <br>стоимость от 0 руб.</p>
+                    <div>
+                        <a class="btn btn-primary fs-5" href="contacts">записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-dark ">
+                <img src="{% static 'img/prices_oblozhka/ls.jpg' %}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex flex-column justify-content-end ">
+                    <h1 class="card-title">Lovestory</h1>
+                    <h1 class="card-title">Индивидуальная</h1>
+                    <h1 class="card-title">Семейная</h1>
+                    <p class="card-text fs-3">Продолжительность от 60 мин <br>стоимость от 0 руб.</p>
+                    <div>
+                        <a class="btn btn-primary fs-5" href="contacts">записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-dark text-white">
+                <img src="{% static 'img/prices_oblozhka/aero.JPG' %}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <h1 class="card-title">Аэросъёмка</h1>
+                    <p class="card-text fs-3">Продолжительность от 60 мин <br>стоимость от 0 руб.</p>
+                    <div>
+                        <a class="btn btn-primary fs-5" href="contacts">записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

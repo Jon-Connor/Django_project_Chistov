@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css%}
+body {
+
+}
+
+.img{
+width: 500px;
+border-radius: 10px;
+box-shadow: 2px 9px 18px 8px rgba(34, 60, 80, 0.2);
+}
+
+h2 {
+font-family: San Francisco;
+
+
+}
+
+{% endblock %}
+
+{% block active_portfolio %}active{% endblock %}
+
+
+{% block content %}
+
+<div class="container text-center my-5">
+    <div class="row row-cols-1 row-cols-lg-2 g-4">
+        <div class="col">
+            <a href="{{ data_category.3.get_absolute_url }}"><img class="img"
+                                                                  src="{% static 'img/portrfolio_oblozhka/sb.JPG' %}"
+                                                                  alt="Свадебная"></a>
+            <h2>Свадебная</h2>
+        </div>
+        <div class="col">
+            <a href="{{ data_category.2.get_absolute_url }}"><img class="img"
+                                                                  src="{% static 'img/portrfolio_oblozhka/com.jpg' %}"
+                                                                  alt="Коммерческая"></a>
+            <h2>Коммерческая</h2>
+        </div>
+
+        <div class="col">
+            <a href="{{ data_category.0.get_absolute_url }}"><img class="img"
+                                                                  src="{% static 'img/portrfolio_oblozhka/lS.JPG' %}"
+                                                                  alt="Lovestory"></a>
+            <h2>Lovestory</h2>
+            <h2>Индивидуальная</h2>
+            <h2>Семейная</h2>
+        </div>
+        <div class="col">
+            <a href="{{ data_category.1.get_absolute_url }}"><img class="img"
+                                                                  src="{% static 'img/portrfolio_oblozhka/aero.JPG' %}"
+                                                                  alt="Аэросъёмка"></a>
+            <h2>Аэросъёмка</h2>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block active_portfolio %}active{% endblock %}
+
+{% block content %}
+<div class="m-4">
+    <div class="">
+    {% for i in media%}
+    <div class="text-center mb-3">
+
+        <a href="{{ i.photo.url }}" ><img width="1200" class="rounded " src="{{ i.photo.url }}"></a>
+
+    </div>
+    {% endfor%}
+        </div>
+</div>
+{% endblock content %}
+
+
+
+
+
+

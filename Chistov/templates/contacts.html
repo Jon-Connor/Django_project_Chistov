@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block active_contact %}active{% endblock %}
+
+{% block bg%}
+
+background-image: url(static/img/1613466866_20-p-fon-dlya-prezentatsii-ofisnii-stil-21.jpeg);
+
+{%endblock%}
+
+{% block content %}
+
+<div class="container text-center my-5">
+    <h1 class="display-2">Свяжитесь со мной</h1>
+    <p class="fs-4">
+        Остались вопросы, появилось желание — пишите, звоните, присоединяйтесь в социальных сетях, не
+        стесняйтесь спрашивать, я всегда рад плодотворному сотрудничеству и общению
+    </p>
+</div>
+<div class="">
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col border-end border-dark border-2 ">
+            <div class=" col-10 d-flex justify-content-center">
+                {% if request.method == 'GET' %}
+                <form action="" method="post">
+                    {% csrf_token%}
+                    {% for f in form %}
+                    <div class="form-floating mb-3">
+                        {{ f }}
+                        <label>{{f.label}}</label>
+                    </div>
+                    {% endfor %}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">отправить</button>
+                    </div>
+                </form>
+                {%else%}
+                <button class="btn style=" style="background-color: #07E1FA" >
+                    <h3>Сообщение отправлено</h3>
+                    <h4>В ближайшее время я свами свяжусь </h4>
+
+                </button>
+
+                {%endif%}
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="text-center">
+                <h2>Мои контакты:</h2>
+            </div>
+            <div class="my-5">
+                <div class="d-flex  flex-column align-items-center justify-content-center ">
+                    <div>
+
+                        <img class="" src="{% static 'img/phone.png'%}" alt=""><span
+                            class="ms-3"><b>{{contact_data.phone}}</b></span>
+                        <br>
+                        {% for i in contact_data.data_icon %}
+                        <a href="{{ i.url }}"><img class="icon_to m-3" src="{% static i.icon %}"></a>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

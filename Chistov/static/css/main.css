@@ -1,0 +1,25 @@
+.icon {
+    width: 35px;
+    }
+
+.icon_to {
+    width: 50px;
+    }
+
+.pad {
+margin-top: 100px;
+}
+
+.red {color: red}
+
+.size {
+height: 480px;
+ }
+.height {height: 200px;}
+
+table {
+    align-content: center;
+}
+
+.li_none {
+    list-style-type: none;}

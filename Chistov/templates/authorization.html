@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block active_login %}active{% endblock %}
+
+{% block css %}
+body {
+background-color: #000000 ;
+background-image: url()
+}
+{% endblock %}
+{% block content %}
+
+    <div  class="d-flex justify-content-center" style="margin-top: 10%">
+        <div class="col-lg-4  shadow-lg rounded " style="background-color:">
+            <div class="p-5">
+                <div class="mb-4 text-center">
+                    <h1 style="color: #FF8C00">Авторизация</h1>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token%}
+                    {% for f in form %}
+                    <div class="form-floating mb-3">
+                        {{ f }}
+                        <label>{{f.label}}:</label>
+                    </div>
+                    {% endfor %}
+                    {% if form.errors %}
+                    <p style="color: red">НЕ ПРАВИЛЬНЫЙ ЛОГИН ИЛИ ПАРОЛЬ</p>
+                    {% endif %}
+                    <div>
+                        <button type="submit" class="btn btn-warning col-12">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}
