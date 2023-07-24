@@ -1,1 +1,1 @@
-# Django_project_Chistov
+# My first website on Django framework
